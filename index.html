@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深度心理探秘：森林奇遇记</title>
+    <style>
+        /* 样式部分：让它看起来像个正经的测试 */
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #2c3e50; /* 深色背景增加神秘感 */
+            color: #ecf0f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            color: #333;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 { color: #27ae60; margin-bottom: 30px; }
+        .scenario {
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            text-align: left;
+            background: #f9f9f9;
+            padding: 20px;
+            border-left: 5px solid #27ae60;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        button {
+            padding: 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            background: white;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #27ae60;
+            color: white;
+            transform: translateY(-2px);
+        }
+        #result-area {
+            display: none; /* 初始隐藏 */
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px dashed #e67e22;
+            background-color: #fff9f4;
+            border-radius: 10px;
+            animation: fadeIn 1s;
+        }
+        .result-title {
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌲 森林奇遇心理测试 🌲</h1>
+    
+    <div id="quiz-part">
+        <div class="scenario">
+            你独自在森林里迷路了三天三夜，饿得前胸贴后背。突然，你发现一间冒着炊烟的小木屋。推门进去，桌上摆着四个盘子，分别放着四种水果——你选择吃：
+        </div>
+        
+        <div class="options">
+            <button onclick="showResult('A')">🍎 A. 红苹果</button>
+            <button onclick="showResult('B')">🍌 B. 弯香蕉</button>
+            <button onclick="showResult('C')">🍊 C. 多汁橙子</button>
+            <button onclick="showResult('D')">🍇 D. 紫葡萄</button>
+        </div>
+    </div>
+
+    <div id="result-area">
+        <div class="result-title">—— 深度解析结果 ——</div>
+        <p id="result-text"></p>
+        <button onclick="location.reload()" style="background:#95a5a6; border:none; color:white; margin-top:20px;">重新测试</button>
+    </div>
+</div>
+
+<script>
+    // 逻辑部分
+    const results = {
+        'A': "👉 你是一个喜欢吃苹果的人。<br><br>没错，这个结果毫无惊喜。你以为测出什么？冒险精神？领导力？隐藏的童年创伤？不，你只是饿的时候选了苹果，说明你对苹果有食欲——换句话说，你喜欢吃苹果。恭喜你，你破解了宇宙真理。",
+        'B': "👉 你是一个喜欢吃香蕉的人。<br><br>是不是觉得结果太准了？准到想打人？别急，这就是本测试的精髓：你选香蕉，当然是因为你觉得香蕉好吃。要是你讨厌香蕉，你早选别的了。所以——你，爱吃香蕉。科学无法解释这种精准度。",
+        'C': "👉 你是一个喜欢吃橙子的人。<br><br>等等，先别吐槽。你仔细想想：一个饿了三天的正常人，面对橙子毫不犹豫，说明什么？说明你内心深处对橙子有真挚的感情。翻译成人话：你就是爱吃橙子。本测试已经达到了占卜学的巅峰。",
+        'D': "👉 你是一个喜欢吃葡萄的人。<br><br>这个结果震撼你了吗？没有？那就对了。因为整个测试的设计原理就是：你选了哪种水果，就证明你喜欢吃那种水果。如果你不服气，说“我只是想填饱肚子”，那请问——你怎么不选旁边那盘石头？因为石头不能吃啊！你还是爱吃葡萄。"
+    };
+
+    function showResult(choice) {
+        // 隐藏题目
+        document.getElementById('quiz-part').style.display = 'none';
+        // 显示结果区域
+        const resultArea = document.getElementById('result-area');
+        resultArea.style.display = 'block';
+        // 填充对应的结果文本
+        document.getElementById('result-text').innerHTML = results[choice];
+    }
+</script>
+
+</body>
+</html>
